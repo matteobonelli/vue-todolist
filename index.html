@@ -13,13 +13,18 @@
         <div class="container bg-gradient">
             <header class="my-3">
                 <h1 class="text-center display-3 fw-bold">La mia lista di cose da fare</h1>
+                <div class="d-flex justify-content-center">
+                    <input type="text" class="w-25 mx-4" v-model="inputText">
+                    <button class="btn btn-success" @click="newTask">Aggiungi</button>
+                </div>
+                
             </header>
             <main>
                 <div v-if="tasks.length === 0" class="success-height text-success d-flex justify-content-center align-items-center">
                     <h2 class="display-3 fw-bold">Complimenti hai finito le tue mansioni!</h2>
                 </div>
                 <ul class="list-group my-3" v-else>
-                    <li class="list-group-item d-flex justify-content-between" v-for="(task, index) in tasks" :class="{'crossedOut' : task.done}">
+                    <li class="list-group-item d-flex justify-content-between" v-for="(task, index) in tasks" :class="{'crossedOut' : task.done}" :key="task.id">
                         <div>{{task.text}}</div>
                         <div :style="'cursor : pointer'" @click="removeItem(index)">
                             <i class="fa-solid fa-xmark"></i>
