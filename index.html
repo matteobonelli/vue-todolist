@@ -14,7 +14,7 @@
             <header class="my-3">
                 <h1 class="text-center display-3 fw-bold">La mia lista di cose da fare</h1>
                 <div class="d-flex justify-content-center">
-                    <input type="text" class="w-25 mx-4" v-model="inputText">
+                    <input type="text" class="w-25 mx-4" v-model="inputText" @keyup.enter="newTask">
                     <button class="btn btn-success" @click="newTask">Aggiungi</button>
                 </div>
                 
