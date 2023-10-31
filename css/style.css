@@ -1,7 +1,28 @@
+body{
+    background-color: antiquewhite;
+}
+h1{
+    font-family: 'Playpen Sans', cursive;
+}
+#app{
+    position: relative;
+}
+li:hover{
+    filter: brightness(90%);
+}
 .crossedOut{
     text-decoration: line-through;
 }
 
 .success-height{
     height: 700px;
+}
+.selector{
+    position: absolute;
+    right: 10%;
+    bottom: 10px;
+}
+.list-height{
+    height: 500px;
+    overflow-y: auto;
 }

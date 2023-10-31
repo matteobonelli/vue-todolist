@@ -25,7 +25,8 @@ createApp({
                 }
                 ],
             idLast : 4 ,
-            inputText : ''            
+            inputText : '',
+            inputSelect: ''            
         }
     },
     methods : {
@@ -38,18 +39,34 @@ createApp({
             this.tasks.splice(index, 1);
         },
         newTask(){
-            this.idLast++
-            const newObj = {
-                text : this.inputText,
-                done : false,
-                id : this.idLast
+            if(this.inputText === ''){
+                return
+            } else{
+                this.idLast++
+                const newObj = {
+                    text : this.inputText,
+                    done : false,
+                    id : this.idLast
+                }
+                this.tasks.unshift(newObj);
+                this.inputText = ''
             }
-            this.tasks.unshift(newObj);
-            this.inputText = ''
+            
         },
         taskCrossedOut(id){
             const index = this.indexFinder(id)
             this.tasks[index].done = !this.tasks[index].done
+        },
+        listFiltered(){
+            return this.tasks.filter((task) => {
+                if(this.inputSelect === 'yes-done' && task.done){
+                    return task
+                } else if(this.inputSelect === 'not-done' && !task.done){
+                    return task
+                } else if(this.inputSelect === '') {
+                    return task
+                }
+            })
         }
     }
 }).mount('#app')
