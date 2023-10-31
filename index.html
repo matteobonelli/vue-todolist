@@ -8,14 +8,14 @@
     <title>Vue To Do List</title>
 </head>
 <body>
-    <div id="#app">
+    <div id="app">
         <div class="container bg-gradient">
             <header class="my-3">
                 <h1 class="text-center display-3 fw-bold">La mia lista di cose da fare</h1>
             </header>
             <main>
                 <ul class="list-group my-3">
-                    <li class="list-group-item" v-for="todo in tasks">{{todo.text}}</li>
+                    <li class="list-group-item" v-for="task in tasks" :class="{'crossedOut' : task.done}">{{task.text}}</li>
                   </ul>
             </main>
             
