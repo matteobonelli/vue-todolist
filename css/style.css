@@ -1,3 +1,7 @@
 .crossedOut{
     text-decoration: line-through;
 }
+
+.success-height{
+    height: 700px;
+}
