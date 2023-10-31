@@ -29,7 +29,12 @@ createApp({
         }
     },
     methods : {
-        removeItem(index){
+        indexFinder(id){
+            return this.tasks.findIndex((task) => task.id === id)
+             
+        },
+        removeItem(id){
+            const index = this.indexFinder(id)
             this.tasks.splice(index, 1);
         },
         newTask(){
@@ -42,7 +47,8 @@ createApp({
             this.tasks.unshift(newObj);
             this.inputText = ''
         },
-        taskCrossedOut(index){
+        taskCrossedOut(id){
+            const index = this.indexFinder(id)
             this.tasks[index].done = !this.tasks[index].done
         }
     }

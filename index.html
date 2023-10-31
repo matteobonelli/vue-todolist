@@ -25,8 +25,8 @@
                 </div>
                 <ul class="list-group my-3" v-else>
                     <li class="list-group-item d-flex justify-content-between" v-for="(task, index) in tasks" :class="{'crossedOut' : task.done}" :key="task.id">
-                        <div @click="taskCrossedOut(index) /*task.done = !task.done*/" :style="'cursor : pointer'">{{task.text}}</div>
-                        <div :style="'cursor : pointer'" @click="removeItem(index)">
+                        <div @click="taskCrossedOut(task.id) /*task.done = !task.done*/" :style="'cursor : pointer'">{{task.text}}</div>
+                        <div :style="'cursor : pointer'" @click="removeItem(task.id)">
                             <i class="fa-solid fa-xmark"></i>
                         </div>
                     </li>
