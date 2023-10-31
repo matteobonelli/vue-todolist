@@ -41,6 +41,9 @@ createApp({
             }
             this.tasks.unshift(newObj);
             this.inputText = ''
+        },
+        taskCrossedOut(index){
+            this.tasks[index].done = !this.tasks[index].done
         }
     }
 }).mount('#app')
